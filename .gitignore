@@ -1,0 +1,10 @@
+# Environment
+.env
+
+# Python
+__pycache__/
+venv/
+.venv/
+
+# Data
+data/database.db
