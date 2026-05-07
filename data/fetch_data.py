@@ -14,9 +14,9 @@ PLATFORM = "vn2"
 
 # Helper
 
-def get(url, retires = 3):
+def get(url, retries = 3):
     "Get request with retry on rate limit (429 Too Many Requests)"
-    for i in range(retires):
+    for i in range(retries):
         r = requests.get(url, headers = HEADERS)
         if r.status_code == 200:
             return r.json()
@@ -69,8 +69,8 @@ def get_match_detail(match_id):
 def init_db(db_path = "data/database.db"):
     connection = sqlite3.connect(db_path)
     connection.execute("""
-            CREATE TABLE IF NOT EXISTS matches(
-                match_id    TEXT       PRIMARY KEY,
+            CREATE TABLE IF NOT EXISTS matches (
+                match_id    TEXT,
                 puuid       TEXT,
                 placement   INTEGER,
                 level       INTEGER,
@@ -78,7 +78,8 @@ def init_db(db_path = "data/database.db"):
                 units       TEXT,
                 augments    TEXT,
                 patch       TEXT,
-                fetched_at  TIMESTAMP  DEFAULT   CURRENT_TIMESTAMP
+                fetched_at  TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+                PRIMARY KEY (match_id, puuid)
             )
     """)
     connection.commit()
@@ -100,7 +101,7 @@ def save_match(connection, match_id, participant):
             json.dumps(participant.get("traits", [])),
             json.dumps(participant.get("units", [])),
             json.dumps(participant.get("augments", [])),
-            participant.get("metadata", {}).get("data_version", "unknown"),
+            participant.get("game_version", "unknown"),
         ))
         connection.commit()
     except Exception as e:
@@ -129,7 +130,7 @@ def main():
                 continue
 
             for p in detail["info"]["participants"]:
-                p["metadata"] = detail.get("metadata", {})
+                p["game_version"] = detail["info"].get("game_version", "unknown")
                 save_match(conn, mid, p)
 
             print(f"Saved: {mid} ({len(detail['info']['participants'])} players)")

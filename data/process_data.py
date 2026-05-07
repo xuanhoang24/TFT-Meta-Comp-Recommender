@@ -2,6 +2,16 @@ import sqlite3
 import pandas as pd
 import json
 
+SET_NUMBER = 17
+
+def clean_name(name):
+    return (
+        str(name)
+        .replace(f"TFT{SET_NUMBER}_", "")
+        .replace(f"Set{SET_NUMBER}_", "")
+        .replace(f"TFT_Set{SET_NUMBER}_", "")
+    )
+    
 # Load data from DB
 
 def load_data(db_path = "data/database.db"):
@@ -26,23 +36,45 @@ def extract_traits(df):
 # Record how many units were active for each trait
     trait_records = []
     for _, row in df.iterrows():
-        record = {"match_id": row["match_id"], "puuid": row["puuid"]}
+        record = {
+            "match_id": row["match_id"],
+            "puuid": row["puuid"]
+        }
+
         for t in row["traits"]:
-            name = t.get("name", "").replace("Set14_", "")
+            name = clean_name(t.get("name", ""))
+
+            if not name:
+                continue
+
             record[f"trait_{name}"] = t.get("num_units", 0)
+
         trait_records.append(record)
+
     return pd.DataFrame(trait_records).fillna(0)
+
 
 def extract_units(df):
 # Mark 1 for each champion on player board
     unit_records = []
     for _, row in df.iterrows():
-        record = {"match_id": row["match_id"], "puuid": row["puuid"]}
+        record = {
+            "match_id": row["match_id"],
+            "puuid": row["puuid"]
+        }
+
         for u in row["units"]:
-            name = u.get("character_id", "").replace("TFT14_", "")
+            name = clean_name(u.get("character_id", ""))
+
+            if not name:
+                continue
+
             record[f"unit_{name}"] = 1
+
         unit_records.append(record)
+
     return pd.DataFrame(unit_records).fillna(0)
+
 
 def extract_augments(df):
 # Mark 1 for each augment the player picked
@@ -75,7 +107,7 @@ def main():
 
     # Add target column
     features = features.merge(
-        df[["match_id", "puuid", "placement", "level"]],
+        df[["match_id", "puuid", "placement"]],
         on=["match_id", "puuid"]
     )
 

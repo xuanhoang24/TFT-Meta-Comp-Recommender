@@ -1,7 +1,7 @@
 import pandas as pd
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.model_selection import train_test_split
-from sklearn.metrics import accuracy_score, confusion_matrix
+from sklearn.metrics import accuracy_score, confusion_matrix, classification_report
 import pickle
 import sqlite3
 from datetime import datetime
@@ -20,7 +20,7 @@ def train(df):
     y = df["placement"].apply(lambda x: 1 if x <= 4 else 0)
 
     x_train, x_test, y_train, y_test = train_test_split(
-        x, y, test_size = 0.2, random_state = 42
+        x, y, test_size = 0.2, random_state = 42, stratify=y
     )
 
     model = RandomForestClassifier(
@@ -35,12 +35,12 @@ def train(df):
     acc = accuracy_score(y_test, y_pred)
     print(f"Accuracy: {acc:.2%}")
     print(f"\nConfusion Matrix:\n{confusion_matrix(y_test, y_pred)}")
-    
+    print(f"\nClassification Report:\n{classification_report(y_test, y_pred)}")
+
     importances = pd.Series(model.feature_importances_, index=x.columns)
     print(f"\nTop 10 features:\n{importances.nlargest(10)}")
 
-    return model, x_test.columns.tolist(), acc
-
+    return model, x.columns.tolist(), acc
 
 # Save model
 
