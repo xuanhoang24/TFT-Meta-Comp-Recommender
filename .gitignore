@@ -10,3 +10,4 @@ venv/
 data/database.db
 *.pkl
 vision/templates/
+data/static/items.json

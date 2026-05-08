@@ -1,0 +1,266 @@
+[
+  {
+    "id": "TFT17_AnimaSquad",
+    "api_name": "AnimaSquad",
+    "name": "Anima",
+    "image": "Trait_Icon_17_AnimaTech.TFT_Set17.png"
+  },
+  {
+    "id": "TFT17_ADMIN",
+    "api_name": "ADMIN",
+    "name": "Arbiter",
+    "image": "Trait_Icon_17_Arbiter.TFT_Set17.png"
+  },
+  {
+    "id": "TFT17_ResistTank",
+    "api_name": "ResistTank",
+    "name": "Bastion",
+    "image": "Trait_Icon_9_Bastion.png"
+  },
+  {
+    "id": "TFT17_HPTank",
+    "api_name": "HPTank",
+    "name": "Brawler",
+    "image": "Trait_Icon_Brawler.png"
+  },
+  {
+    "id": "TFT17_ShenUniqueTrait",
+    "api_name": "ShenUniqueTrait",
+    "name": "Bulwark",
+    "image": "Trait_Icon_17_Bulwark.TFT_Set17.png"
+  },
+  {
+    "id": "TFT17_ASTrait",
+    "api_name": "ASTrait",
+    "name": "Challenger",
+    "image": "Trait_Icon_17_Challenger.TFT_Set17.png"
+  },
+  {
+    "id": "TFT17_MissFortuneUndeterminedTrait",
+    "api_name": "MissFortuneUndeterminedTrait",
+    "name": "Choose Trait",
+    "image": "Trait_Icon_17_MissFortuneUndetermindedTrait.TFT_Set17.png"
+  },
+  {
+    "id": "TFT17_SonaUniqueTrait",
+    "api_name": "SonaUniqueTrait",
+    "name": "Commander",
+    "image": "Trait_Icon_17_Commander.TFT_Set17.png"
+  },
+  {
+    "id": "TFT17_ManaTrait",
+    "api_name": "ManaTrait",
+    "name": "Conduit",
+    "image": "Trait_Icon_17_Channeler.TFT_Set17.png"
+  },
+  {
+    "id": "TFT17_MorganaUniqueTrait",
+    "api_name": "MorganaUniqueTrait",
+    "name": "Dark Lady",
+    "image": "Trait_Icon_17_DarkLady.TFT_Set17.png"
+  },
+  {
+    "id": "TFT17_DarkStar",
+    "api_name": "DarkStar",
+    "name": "Dark Star",
+    "image": "Trait_Icon_17_DarkStar.TFT_Set17.png"
+  },
+  {
+    "id": "TFT17_FioraUniqueTrait",
+    "api_name": "FioraUniqueTrait",
+    "name": "Divine Duelist",
+    "image": "Trait_Icon_17_DivineDuelist.TFT_Set17.png"
+  },
+  {
+    "id": "TFT17_VexUniqueTrait",
+    "api_name": "VexUniqueTrait",
+    "name": "Doomer",
+    "image": "Trait_Icon_17_Doomer.TFT_Set17.png"
+  },
+  {
+    "id": "TFT17_JhinUniqueTrait",
+    "api_name": "JhinUniqueTrait",
+    "name": "Eradicator",
+    "image": "Trait_Icon_17_Singularity.TFT_Set17.png"
+  },
+  {
+    "id": "TFT17_GravesTrait",
+    "api_name": "GravesTrait",
+    "name": "Factory New",
+    "image": "Trait_Icon_17_FactoryNew.TFT_Set17.png"
+  },
+  {
+    "id": "TFT17_Fateweaver",
+    "api_name": "Fateweaver",
+    "name": "Fateweaver",
+    "image": "Trait_Icon_17_Fateweaver.TFT_Set17.png"
+  },
+  {
+    "id": "TFT17_ZedUniqueTrait",
+    "api_name": "ZedUniqueTrait",
+    "name": "Galaxy Hunter",
+    "image": "Trait_Icon_17_GalaxyHunter.TFT_Set17.png"
+  },
+  {
+    "id": "Set17_CarouselMarket_EmpoweredHexTrait",
+    "api_name": "CarouselMarket_EmpoweredHexTrait",
+    "name": "God-Blessed",
+    "image": "Trait_Icon_17_GodBlessed.TFT_Set17.png"
+  },
+  {
+    "id": "TFT17_MissFortuneUniqueTrait",
+    "api_name": "MissFortuneUniqueTrait",
+    "name": "Gun Goddess",
+    "image": "Trait_Icon_17_GunGoddess.TFT_Set17.png"
+  },
+  {
+    "id": "TFT17_MeleeTrait",
+    "api_name": "MeleeTrait",
+    "name": "Marauder",
+    "image": "Trait_Icon_16_Slayer.png"
+  },
+  {
+    "id": "TFT17_Mecha",
+    "api_name": "Mecha",
+    "name": "Mecha",
+    "image": "Trait_Icon_17_Mecha.TFT_Set17.png"
+  },
+  {
+    "id": "TFT17_Astronaut",
+    "api_name": "Astronaut",
+    "name": "Meeple",
+    "image": "Trait_Icon_17_Astronaut.TFT_Set17.png"
+  },
+  {
+    "id": "TFT17_DRX",
+    "api_name": "DRX",
+    "name": "N.O.V.A.",
+    "image": "Trait_Icon_17_NOVA.TFT_Set17.png"
+  },
+  {
+    "id": "TFT17_TahmKenchUniqueTrait",
+    "api_name": "TahmKenchUniqueTrait",
+    "name": "Oracle",
+    "image": "Trait_Icon_12_Arcana.TFT_Set12.png"
+  },
+  {
+    "id": "TFT17_BlitzcrankUniqueTrait",
+    "api_name": "BlitzcrankUniqueTrait",
+    "name": "Party Animal",
+    "image": "Trait_Icon_17_PartyAnimal.TFT_Set17.png"
+  },
+  {
+    "id": "TFT17_Primordian",
+    "api_name": "Primordian",
+    "name": "Primordian",
+    "image": "Trait_Icon_17_Primordian.TFT_Set17.png"
+  },
+  {
+    "id": "TFT17_PsyOps",
+    "api_name": "PsyOps",
+    "name": "Psionic",
+    "image": "Trait_Icon_17_PsyOps.TFT_Set17.png"
+  },
+  {
+    "id": "TFT17_RhaastUniqueTrait",
+    "api_name": "RhaastUniqueTrait",
+    "name": "Redeemer",
+    "image": "Trait_Icon_17_Redeemer.TFT_Set17.png"
+  },
+  {
+    "id": "TFT17_APTrait",
+    "api_name": "APTrait",
+    "name": "Replicator",
+    "image": "Trait_Icon_17_Replicator.TFT_Set17.png"
+  },
+  {
+    "id": "TFT17_AssassinTrait",
+    "api_name": "AssassinTrait",
+    "name": "Rogue",
+    "image": "Trait_Icon_17_Rogue.TFT_Set17.png"
+  },
+  {
+    "id": "TFT17_SummonTrait",
+    "api_name": "SummonTrait",
+    "name": "Shepherd",
+    "image": "Trait_Icon_17_Shepherd.TFT_Set17.png"
+  },
+  {
+    "id": "TFT17_RangedTrait",
+    "api_name": "RangedTrait",
+    "name": "Sniper",
+    "image": "Trait_Icon_6_Sniper.png"
+  },
+  {
+    "id": "TFT17_SpaceGroove",
+    "api_name": "SpaceGroove",
+    "name": "Space Groove",
+    "image": "Trait_Icon_17_SpaceGroove.TFT_Set17.png"
+  },
+  {
+    "id": "TFT17_Stargazer",
+    "api_name": "Stargazer",
+    "name": "Stargazer",
+    "image": "Trait_Icon_17_Stargazer.TFT_Set17.png"
+  },
+  {
+    "id": "TFT17_Stargazer_Huntress",
+    "api_name": "Stargazer_Huntress",
+    "name": "Stargazer",
+    "image": "Trait_Icon_17_Stargazer.TFT_Set17.png"
+  },
+  {
+    "id": "TFT17_Stargazer_Mountain",
+    "api_name": "Stargazer_Mountain",
+    "name": "Stargazer",
+    "image": "Trait_Icon_17_Stargazer.TFT_Set17.png"
+  },
+  {
+    "id": "TFT17_Stargazer_Serpent",
+    "api_name": "Stargazer_Serpent",
+    "name": "Stargazer",
+    "image": "Trait_Icon_17_Stargazer.TFT_Set17.png"
+  },
+  {
+    "id": "TFT17_Stargazer_Shield",
+    "api_name": "Stargazer_Shield",
+    "name": "Stargazer",
+    "image": "Trait_Icon_17_Stargazer.TFT_Set17.png"
+  },
+  {
+    "id": "TFT17_Stargazer_Medallion",
+    "api_name": "Stargazer_Medallion",
+    "name": "Stargazer",
+    "image": "Trait_Icon_17_Stargazer.TFT_Set17.png"
+  },
+  {
+    "id": "TFT17_Stargazer_Fountain",
+    "api_name": "Stargazer_Fountain",
+    "name": "Stargazer",
+    "image": "Trait_Icon_17_Stargazer.TFT_Set17.png"
+  },
+  {
+    "id": "TFT17_Stargazer_Wolf",
+    "api_name": "Stargazer_Wolf",
+    "name": "Stargazer",
+    "image": "Trait_Icon_17_Stargazer.TFT_Set17.png"
+  },
+  {
+    "id": "TFT17_Timebreaker",
+    "api_name": "Timebreaker",
+    "name": "Timebreaker",
+    "image": "Trait_Icon_17_Timebreaker.TFT_Set17.png"
+  },
+  {
+    "id": "TFT17_ShieldTank",
+    "api_name": "ShieldTank",
+    "name": "Vanguard",
+    "image": "Trait_Icon_12_Vanguard.TFT_Set12.png"
+  },
+  {
+    "id": "TFT17_FlexTrait",
+    "api_name": "FlexTrait",
+    "name": "Voyager",
+    "image": "Trait_Icon_17_Voyager.TFT_Set17.png"
+  }
+]
