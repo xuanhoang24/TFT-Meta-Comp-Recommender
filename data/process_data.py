@@ -94,6 +94,12 @@ def main():
     df = load_data()
     print(f"Raw rows: {len(df)}")
 
+    # Filter to latest patch
+    latest_patch = df["patch"].value_counts().index[0]
+    print(f"Latest patch: {latest_patch} | rows: {len(df[df['patch'] == latest_patch])}")
+    df = df[df["patch"] == latest_patch]
+    print(f"Filtered rows: {len(df)}")
+
     df = parse_json_columns(df)
 
     print("Extracting features...")
@@ -107,7 +113,7 @@ def main():
 
     # Add target column
     features = features.merge(
-        df[["match_id", "puuid", "placement"]],
+        df[["match_id", "puuid", "placement", "level"]],
         on=["match_id", "puuid"]
     )
 
