@@ -1,0 +1,436 @@
+[
+  {
+    "id": "TFT17_Aatrox",
+    "api_name": "Aatrox",
+    "name": "Aatrox",
+    "image": "TFT17_Aatrox_splash_centered_30.TFT_Set17.png",
+    "icon_url": "https://ddragon.leagueoflegends.com/cdn/16.9.1/img/tft-champion/TFT17_Aatrox_splash_centered_30.TFT_Set17.png"
+  },
+  {
+    "id": "TFT17_Akali",
+    "api_name": "Akali",
+    "name": "Akali",
+    "image": "TFT17_Akali_splash_centered_68.TFT_Set17.png",
+    "icon_url": "https://ddragon.leagueoflegends.com/cdn/16.9.1/img/tft-champion/TFT17_Akali_splash_centered_68.TFT_Set17.png"
+  },
+  {
+    "id": "TFT17_AurelionSol",
+    "api_name": "AurelionSol",
+    "name": "Aurelion Sol",
+    "image": "TFT17_AurelionSol_splash_centered_2.TFT_Set17.png",
+    "icon_url": "https://ddragon.leagueoflegends.com/cdn/16.9.1/img/tft-champion/TFT17_AurelionSol_splash_centered_2.TFT_Set17.png"
+  },
+  {
+    "id": "TFT17_Aurora",
+    "api_name": "Aurora",
+    "name": "Aurora",
+    "image": "TFT17_Aurora_splash_centered_1.TFT_Set17.png",
+    "icon_url": "https://ddragon.leagueoflegends.com/cdn/16.9.1/img/tft-champion/TFT17_Aurora_splash_centered_1.TFT_Set17.png"
+  },
+  {
+    "id": "TFT17_Bard",
+    "api_name": "Bard",
+    "name": "Bard",
+    "image": "TFT17_Bard_splash_centered_8.TFT_Set17.png",
+    "icon_url": "https://ddragon.leagueoflegends.com/cdn/16.9.1/img/tft-champion/TFT17_Bard_splash_centered_8.TFT_Set17.png"
+  },
+  {
+    "id": "TFT17_Belveth",
+    "api_name": "Belveth",
+    "name": "Bel'Veth",
+    "image": "TFT17_Belveth_splash_centered_19.TFT_Set17.png",
+    "icon_url": "https://ddragon.leagueoflegends.com/cdn/16.9.1/img/tft-champion/TFT17_Belveth_splash_centered_19.TFT_Set17.png"
+  },
+  {
+    "id": "TFT17_Blitzcrank",
+    "api_name": "Blitzcrank",
+    "name": "Blitzcrank",
+    "image": "TFT17_Blitzcrank_splash_uncentered_65.TFT_Set17.png",
+    "icon_url": "https://ddragon.leagueoflegends.com/cdn/16.9.1/img/tft-champion/TFT17_Blitzcrank_splash_uncentered_65.TFT_Set17.png"
+  },
+  {
+    "id": "TFT17_Briar",
+    "api_name": "Briar",
+    "name": "Briar",
+    "image": "TFT17_Briar_splash_centered_10.TFT_Set17.png",
+    "icon_url": "https://ddragon.leagueoflegends.com/cdn/16.9.1/img/tft-champion/TFT17_Briar_splash_centered_10.TFT_Set17.png"
+  },
+  {
+    "id": "TFT17_Caitlyn",
+    "api_name": "Caitlyn",
+    "name": "Caitlyn",
+    "image": "TFT17_Caitlyn_splash_centered_48.TFT_Set17.png",
+    "icon_url": "https://ddragon.leagueoflegends.com/cdn/16.9.1/img/tft-champion/TFT17_Caitlyn_splash_centered_48.TFT_Set17.png"
+  },
+  {
+    "id": "TFT17_Chogath",
+    "api_name": "Chogath",
+    "name": "Cho'Gath",
+    "image": "TFT17_Chogath_splash_centered_7.TFT_Set17.png",
+    "icon_url": "https://ddragon.leagueoflegends.com/cdn/16.9.1/img/tft-champion/TFT17_Chogath_splash_centered_7.TFT_Set17.png"
+  },
+  {
+    "id": "TFT17_Corki",
+    "api_name": "Corki",
+    "name": "Corki",
+    "image": "TFT17_Corki_splash_centered_26.TFT_Set17.png",
+    "icon_url": "https://ddragon.leagueoflegends.com/cdn/16.9.1/img/tft-champion/TFT17_Corki_splash_centered_26.TFT_Set17.png"
+  },
+  {
+    "id": "TFT17_Diana",
+    "api_name": "Diana",
+    "name": "Diana",
+    "image": "TFT17_DianaSplash_PC.TFT_Set17.png",
+    "icon_url": "https://ddragon.leagueoflegends.com/cdn/16.9.1/img/tft-champion/TFT17_DianaSplash_PC.TFT_Set17.png"
+  },
+  {
+    "id": "TFT17_Ezreal",
+    "api_name": "Ezreal",
+    "name": "Ezreal",
+    "image": "TFT17_Ezreal_splash_centered_5.TFT_Set17.png",
+    "icon_url": "https://ddragon.leagueoflegends.com/cdn/16.9.1/img/tft-champion/TFT17_Ezreal_splash_centered_5.TFT_Set17.png"
+  },
+  {
+    "id": "TFT17_Fiora",
+    "api_name": "Fiora",
+    "name": "Fiora",
+    "image": "TFT17_Fiora_splash_centered_51.TFT_Set17.png",
+    "icon_url": "https://ddragon.leagueoflegends.com/cdn/16.9.1/img/tft-champion/TFT17_Fiora_splash_centered_51.TFT_Set17.png"
+  },
+  {
+    "id": "TFT17_Fizz",
+    "api_name": "Fizz",
+    "name": "Fizz",
+    "image": "TFT17_Fizz_splash_centered_26.TFT_Set17.png",
+    "icon_url": "https://ddragon.leagueoflegends.com/cdn/16.9.1/img/tft-champion/TFT17_Fizz_splash_centered_26.TFT_Set17.png"
+  },
+  {
+    "id": "TFT17_Gnar",
+    "api_name": "Gnar",
+    "name": "Gnar",
+    "image": "TFT17_Gnar_splash_centered_15.TFT_Set17.png",
+    "icon_url": "https://ddragon.leagueoflegends.com/cdn/16.9.1/img/tft-champion/TFT17_Gnar_splash_centered_15.TFT_Set17.png"
+  },
+  {
+    "id": "TFT17_Gragas",
+    "api_name": "Gragas",
+    "name": "Gragas",
+    "image": "TFT17_Gragas_splash_centered_10.TFT_Set17.png",
+    "icon_url": "https://ddragon.leagueoflegends.com/cdn/16.9.1/img/tft-champion/TFT17_Gragas_splash_centered_10.TFT_Set17.png"
+  },
+  {
+    "id": "TFT17_Graves",
+    "api_name": "Graves",
+    "name": "Graves",
+    "image": "TFT17_Graves_splash_centered_18.TFT_Set17.png",
+    "icon_url": "https://ddragon.leagueoflegends.com/cdn/16.9.1/img/tft-champion/TFT17_Graves_splash_centered_18.TFT_Set17.png"
+  },
+  {
+    "id": "TFT17_Gwen",
+    "api_name": "Gwen",
+    "name": "Gwen",
+    "image": "TFT17_Gwen_splash_centered_1.TFT_Set17.png",
+    "icon_url": "https://ddragon.leagueoflegends.com/cdn/16.9.1/img/tft-champion/TFT17_Gwen_splash_centered_1.TFT_Set17.png"
+  },
+  {
+    "id": "TFT17_Illaoi",
+    "api_name": "Illaoi",
+    "name": "Illaoi",
+    "image": "TFT17_Illaoi_splash_centered_27.TFT_Set17.png",
+    "icon_url": "https://ddragon.leagueoflegends.com/cdn/16.9.1/img/tft-champion/TFT17_Illaoi_splash_centered_27.TFT_Set17.png"
+  },
+  {
+    "id": "TFT17_Jax",
+    "api_name": "Jax",
+    "name": "Jax",
+    "image": "TFT17_Jax.TFT_Set17.png",
+    "icon_url": "https://ddragon.leagueoflegends.com/cdn/16.9.1/img/tft-champion/TFT17_Jax.TFT_Set17.png"
+  },
+  {
+    "id": "TFT17_Jhin",
+    "api_name": "Jhin",
+    "name": "Jhin",
+    "image": "TFT17_Jhin_splash_centered_37.TFT_Set17.png",
+    "icon_url": "https://ddragon.leagueoflegends.com/cdn/16.9.1/img/tft-champion/TFT17_Jhin_splash_centered_37.TFT_Set17.png"
+  },
+  {
+    "id": "TFT17_Jinx",
+    "api_name": "Jinx",
+    "name": "Jinx",
+    "image": "TFT17_Jinx_splash_centered_38.TFT_Set17.png",
+    "icon_url": "https://ddragon.leagueoflegends.com/cdn/16.9.1/img/tft-champion/TFT17_Jinx_splash_centered_38.TFT_Set17.png"
+  },
+  {
+    "id": "TFT17_Kaisa",
+    "api_name": "Kaisa",
+    "name": "Kai'Sa",
+    "image": "TFT17_Kaisa_splash_centered_69.TFT_Set17.png",
+    "icon_url": "https://ddragon.leagueoflegends.com/cdn/16.9.1/img/tft-champion/TFT17_Kaisa_splash_centered_69.TFT_Set17.png"
+  },
+  {
+    "id": "TFT17_Karma",
+    "api_name": "Karma",
+    "name": "Karma",
+    "image": "TFT17_Karma_splash_centered_8.TFT_Set17.png",
+    "icon_url": "https://ddragon.leagueoflegends.com/cdn/16.9.1/img/tft-champion/TFT17_Karma_splash_centered_8.TFT_Set17.png"
+  },
+  {
+    "id": "TFT17_Kindred",
+    "api_name": "Kindred",
+    "name": "Kindred",
+    "image": "TFT17_Kindred_splash_centered_23.TFT_Set17.png",
+    "icon_url": "https://ddragon.leagueoflegends.com/cdn/16.9.1/img/tft-champion/TFT17_Kindred_splash_centered_23.TFT_Set17.png"
+  },
+  {
+    "id": "TFT17_Leblanc",
+    "api_name": "Leblanc",
+    "name": "LeBlanc",
+    "image": "TFT17_Leblanc_splash_centered_29.TFT_Set17.png",
+    "icon_url": "https://ddragon.leagueoflegends.com/cdn/16.9.1/img/tft-champion/TFT17_Leblanc_splash_centered_29.TFT_Set17.png"
+  },
+  {
+    "id": "TFT17_Leona",
+    "api_name": "Leona",
+    "name": "Leona",
+    "image": "TFT17_Leona_splash_centered_64.TFT_Set17.png",
+    "icon_url": "https://ddragon.leagueoflegends.com/cdn/16.9.1/img/tft-champion/TFT17_Leona_splash_centered_64.TFT_Set17.png"
+  },
+  {
+    "id": "TFT17_Lissandra",
+    "api_name": "Lissandra",
+    "name": "Lissandra",
+    "image": "TFT17_Lissandra_splash_centered_12.TFT_Set17.png",
+    "icon_url": "https://ddragon.leagueoflegends.com/cdn/16.9.1/img/tft-champion/TFT17_Lissandra_splash_centered_12.TFT_Set17.png"
+  },
+  {
+    "id": "TFT17_Lulu",
+    "api_name": "Lulu",
+    "name": "Lulu",
+    "image": "TFT17_Lulu_splash_centered_14.TFT_Set17.png",
+    "icon_url": "https://ddragon.leagueoflegends.com/cdn/16.9.1/img/tft-champion/TFT17_Lulu_splash_centered_14.TFT_Set17.png"
+  },
+  {
+    "id": "TFT17_Maokai",
+    "api_name": "Maokai",
+    "name": "Maokai",
+    "image": "TFT17_Maokai_splash_centered_33.TFT_Set17.png",
+    "icon_url": "https://ddragon.leagueoflegends.com/cdn/16.9.1/img/tft-champion/TFT17_Maokai_splash_centered_33.TFT_Set17.png"
+  },
+  {
+    "id": "TFT17_MasterYi",
+    "api_name": "MasterYi",
+    "name": "Master Yi",
+    "image": "TFT17_MasterYi_splash_centered_33.TFT_Set17.png",
+    "icon_url": "https://ddragon.leagueoflegends.com/cdn/16.9.1/img/tft-champion/TFT17_MasterYi_splash_centered_33.TFT_Set17.png"
+  },
+  {
+    "id": "TFT17_Milio",
+    "api_name": "Milio",
+    "name": "Milio",
+    "image": "TFT17_Milio_splash_centered_0.TFT_Set17.png",
+    "icon_url": "https://ddragon.leagueoflegends.com/cdn/16.9.1/img/tft-champion/TFT17_Milio_splash_centered_0.TFT_Set17.png"
+  },
+  {
+    "id": "TFT17_MissFortune",
+    "api_name": "MissFortune",
+    "name": "Miss Fortune",
+    "image": "TFT17_MissFortune_splash_centered_16.TFT_Set17.png",
+    "icon_url": "https://ddragon.leagueoflegends.com/cdn/16.9.1/img/tft-champion/TFT17_MissFortune_splash_centered_16.TFT_Set17.png"
+  },
+  {
+    "id": "TFT17_Mordekaiser",
+    "api_name": "Mordekaiser",
+    "name": "Mordekaiser",
+    "image": "TFT17_Mordekaiser_splash_centered_6.TFT_Set17.png",
+    "icon_url": "https://ddragon.leagueoflegends.com/cdn/16.9.1/img/tft-champion/TFT17_Mordekaiser_splash_centered_6.TFT_Set17.png"
+  },
+  {
+    "id": "TFT17_Morgana",
+    "api_name": "Morgana",
+    "name": "Morgana",
+    "image": "TFT17_Morgana_splash_centered_50.TFT_Set17.png",
+    "icon_url": "https://ddragon.leagueoflegends.com/cdn/16.9.1/img/tft-champion/TFT17_Morgana_splash_centered_50.TFT_Set17.png"
+  },
+  {
+    "id": "TFT17_Nami",
+    "api_name": "Nami",
+    "name": "Nami",
+    "image": "TFT17_Nami_splash_centered_41.TFT_Set17.png",
+    "icon_url": "https://ddragon.leagueoflegends.com/cdn/16.9.1/img/tft-champion/TFT17_Nami_splash_centered_41.TFT_Set17.png"
+  },
+  {
+    "id": "TFT17_Nasus",
+    "api_name": "Nasus",
+    "name": "Nasus",
+    "image": "TFT17_Nasus_splash_centered_25.TFT_Set17.png",
+    "icon_url": "https://ddragon.leagueoflegends.com/cdn/16.9.1/img/tft-champion/TFT17_Nasus_splash_centered_25.TFT_Set17.png"
+  },
+  {
+    "id": "TFT17_Nunu",
+    "api_name": "Nunu",
+    "name": "Nunu & Willump",
+    "image": "TFT17_Nunu_splash_centered_35.TFT_Set17.png",
+    "icon_url": "https://ddragon.leagueoflegends.com/cdn/16.9.1/img/tft-champion/TFT17_Nunu_splash_centered_35.TFT_Set17.png"
+  },
+  {
+    "id": "TFT17_Ornn",
+    "api_name": "Ornn",
+    "name": "Ornn",
+    "image": "TFT17_Ornn_splash_centered_11.TFT_Set17.png",
+    "icon_url": "https://ddragon.leagueoflegends.com/cdn/16.9.1/img/tft-champion/TFT17_Ornn_splash_centered_11.TFT_Set17.png"
+  },
+  {
+    "id": "TFT17_Pantheon",
+    "api_name": "Pantheon",
+    "name": "Pantheon",
+    "image": "TFT17_Pantheon_splash_centered_16.TFT_Set17.png",
+    "icon_url": "https://ddragon.leagueoflegends.com/cdn/16.9.1/img/tft-champion/TFT17_Pantheon_splash_centered_16.TFT_Set17.png"
+  },
+  {
+    "id": "TFT17_Poppy",
+    "api_name": "Poppy",
+    "name": "Poppy",
+    "image": "TFT17_Poppy_splash_centered_16.TFT_Set17.png",
+    "icon_url": "https://ddragon.leagueoflegends.com/cdn/16.9.1/img/tft-champion/TFT17_Poppy_splash_centered_16.TFT_Set17.png"
+  },
+  {
+    "id": "TFT17_Pyke",
+    "api_name": "Pyke",
+    "name": "Pyke",
+    "image": "TFT17_Pyke_splash_centered_25.TFT_Set17.png",
+    "icon_url": "https://ddragon.leagueoflegends.com/cdn/16.9.1/img/tft-champion/TFT17_Pyke_splash_centered_25.TFT_Set17.png"
+  },
+  {
+    "id": "TFT17_Rammus",
+    "api_name": "Rammus",
+    "name": "Rammus",
+    "image": "TFT17_Rammus_splash_centered_17.TFT_Set17.png",
+    "icon_url": "https://ddragon.leagueoflegends.com/cdn/16.9.1/img/tft-champion/TFT17_Rammus_splash_centered_17.TFT_Set17.png"
+  },
+  {
+    "id": "TFT17_RekSai",
+    "api_name": "RekSai",
+    "name": "Rek'Sai",
+    "image": "TFT17_RekSai_splash_centered_26.TFT_Set17.png",
+    "icon_url": "https://ddragon.leagueoflegends.com/cdn/16.9.1/img/tft-champion/TFT17_RekSai_splash_centered_26.TFT_Set17.png"
+  },
+  {
+    "id": "TFT17_Rhaast",
+    "api_name": "Rhaast",
+    "name": "Rhaast",
+    "image": "TFT17_KaynSplash_Uncentered.TFT_Set17.png",
+    "icon_url": "https://ddragon.leagueoflegends.com/cdn/16.9.1/img/tft-champion/TFT17_KaynSplash_Uncentered.TFT_Set17.png"
+  },
+  {
+    "id": "TFT17_Riven",
+    "api_name": "Riven",
+    "name": "Riven",
+    "image": "TFT17_Riven_splash_centered_18.TFT_Set17.png",
+    "icon_url": "https://ddragon.leagueoflegends.com/cdn/16.9.1/img/tft-champion/TFT17_Riven_splash_centered_18.TFT_Set17.png"
+  },
+  {
+    "id": "TFT17_Samira",
+    "api_name": "Samira",
+    "name": "Samira",
+    "image": "TFT17_Samira_splash_centered_10.TFT_Set17.png",
+    "icon_url": "https://ddragon.leagueoflegends.com/cdn/16.9.1/img/tft-champion/TFT17_Samira_splash_centered_10.TFT_Set17.png"
+  },
+  {
+    "id": "TFT17_Shen",
+    "api_name": "Shen",
+    "name": "Shen",
+    "image": "TFT17_shen_splash_centered_49.TFT_Set17.png",
+    "icon_url": "https://ddragon.leagueoflegends.com/cdn/16.9.1/img/tft-champion/TFT17_shen_splash_centered_49.TFT_Set17.png"
+  },
+  {
+    "id": "TFT17_Sona",
+    "api_name": "Sona",
+    "name": "Sona",
+    "image": "TFT17_Sona_splash_centered_17.TFT_Set17.png",
+    "icon_url": "https://ddragon.leagueoflegends.com/cdn/16.9.1/img/tft-champion/TFT17_Sona_splash_centered_17.TFT_Set17.png"
+  },
+  {
+    "id": "TFT17_TahmKench",
+    "api_name": "TahmKench",
+    "name": "Tahm Kench",
+    "image": "TFT17_TahmKench_splash_centered_11.TFT_Set17.png",
+    "icon_url": "https://ddragon.leagueoflegends.com/cdn/16.9.1/img/tft-champion/TFT17_TahmKench_splash_centered_11.TFT_Set17.png"
+  },
+  {
+    "id": "TFT17_Talon",
+    "api_name": "Talon",
+    "name": "Talon",
+    "image": "TFT17_Talon_splash_centered_39.TFT_Set17.png",
+    "icon_url": "https://ddragon.leagueoflegends.com/cdn/16.9.1/img/tft-champion/TFT17_Talon_splash_centered_39.TFT_Set17.png"
+  },
+  {
+    "id": "TFT17_Teemo",
+    "api_name": "Teemo",
+    "name": "Teemo",
+    "image": "TFT17_Teemo_splash_centered_47.TFT_Set17.png",
+    "icon_url": "https://ddragon.leagueoflegends.com/cdn/16.9.1/img/tft-champion/TFT17_Teemo_splash_centered_47.TFT_Set17.png"
+  },
+  {
+    "id": "TFT17_Galio",
+    "api_name": "Galio",
+    "name": "The Mighty Mech",
+    "image": "TFT17_Galio.TFT_Set17.png",
+    "icon_url": "https://ddragon.leagueoflegends.com/cdn/16.9.1/img/tft-champion/TFT17_Galio.TFT_Set17.png"
+  },
+  {
+    "id": "TFT17_TwistedFate",
+    "api_name": "TwistedFate",
+    "name": "Twisted Fate",
+    "image": "TFT17_TwistedFate_splash_centered_45.TFT_Set17.png",
+    "icon_url": "https://ddragon.leagueoflegends.com/cdn/16.9.1/img/tft-champion/TFT17_TwistedFate_splash_centered_45.TFT_Set17.png"
+  },
+  {
+    "id": "TFT17_Urgot",
+    "api_name": "Urgot",
+    "name": "Urgot",
+    "image": "TFT17_Urgot_splash_centered_32.TFT_Set17.png",
+    "icon_url": "https://ddragon.leagueoflegends.com/cdn/16.9.1/img/tft-champion/TFT17_Urgot_splash_centered_32.TFT_Set17.png"
+  },
+  {
+    "id": "TFT17_Veigar",
+    "api_name": "Veigar",
+    "name": "Veigar",
+    "image": "TFT17_Veigar_splash_centered_32.TFT_Set17.png",
+    "icon_url": "https://ddragon.leagueoflegends.com/cdn/16.9.1/img/tft-champion/TFT17_Veigar_splash_centered_32.TFT_Set17.png"
+  },
+  {
+    "id": "TFT17_Vex",
+    "api_name": "Vex",
+    "name": "Vex",
+    "image": "TFT17_vex_splash_centered_10.TFT_Set17.png",
+    "icon_url": "https://ddragon.leagueoflegends.com/cdn/16.9.1/img/tft-champion/TFT17_vex_splash_centered_10.TFT_Set17.png"
+  },
+  {
+    "id": "TFT17_Viktor",
+    "api_name": "Viktor",
+    "name": "Viktor",
+    "image": "TFT17_Viktor_splash_centered_5.TFT_Set17.png",
+    "icon_url": "https://ddragon.leagueoflegends.com/cdn/16.9.1/img/tft-champion/TFT17_Viktor_splash_centered_5.TFT_Set17.png"
+  },
+  {
+    "id": "TFT17_Xayah",
+    "api_name": "Xayah",
+    "name": "Xayah",
+    "image": "TFT17_Xayah_splash_centered_1.TFT_Set17.png",
+    "icon_url": "https://ddragon.leagueoflegends.com/cdn/16.9.1/img/tft-champion/TFT17_Xayah_splash_centered_1.TFT_Set17.png"
+  },
+  {
+    "id": "TFT17_Zed",
+    "api_name": "Zed",
+    "name": "Zed",
+    "image": "TFT17_Zed_splash_centered_68.TFT_Set17.png",
+    "icon_url": "https://ddragon.leagueoflegends.com/cdn/16.9.1/img/tft-champion/TFT17_Zed_splash_centered_68.TFT_Set17.png"
+  },
+  {
+    "id": "TFT17_Zoe",
+    "api_name": "Zoe",
+    "name": "Zoe",
+    "image": "TFT17_Zoe_splash_centered_43.TFT_Set17.png",
+    "icon_url": "https://ddragon.leagueoflegends.com/cdn/16.9.1/img/tft-champion/TFT17_Zoe_splash_centered_43.TFT_Set17.png"
+  }
+]

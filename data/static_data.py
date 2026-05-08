@@ -21,10 +21,6 @@ def get_latest_version():
 def clean_trait_api_name(name):
     """
     Clean Riot trait API name.
-
-    Example:
-        TFT17_DarkStar -> DarkStar
-        Set17_ManaTrait -> ManaTrait
         TFT_Set17_ASTrait -> ASTrait
     """
 
@@ -36,12 +32,17 @@ def clean_trait_api_name(name):
     )
 
 
+def clean_champion_api_name(name):
+    """
+    Clean Riot champion API name.
+        TFT17_Kindred -> Kindred
+    """
+    return str(name).replace(f"TFT{SET_NUMBER}_", "")
+
+
 def clean_item_api_name(item):
     """
     Clean Riot item API name.
-
-    Example:
-        TFT_Item_GuinsoosRageblade -> GuinsoosRageblade
         TFT17_Item_LastWhisper -> LastWhisper
     """
 
@@ -76,6 +77,12 @@ def is_current_set_trait(trait_id, set_number=SET_NUMBER):
         or f"Set{set_number}_" in trait_id
         or f"TFT_Set{set_number}_" in trait_id
     )
+
+
+def is_current_set_champion(champion_id, set_number=SET_NUMBER):
+    # Check if a champion belongs to the current TFT set.
+    champion_id = str(champion_id)
+    return f"TFT{set_number}_" in champion_id
 
 
 def is_bad_display_name(name):
@@ -119,15 +126,69 @@ def fetch_traits(set_number=SET_NUMBER):
 
         api_name = clean_trait_api_name(trait_id)
         display_name = trait.get("name", api_name)
+        image = trait.get("image", {}).get("full", "")
+
+        icon_url = ""
+        if image:
+            icon_url = f"{BASE_DDRAGON}/cdn/{version}/img/tft-trait/{image}"
 
         traits.append({
             "id": trait_id,
             "api_name": api_name,
             "name": display_name,
-            "image": trait.get("image", {}).get("full", "")
+            "image": image,
+            "icon_url": icon_url,
         })
 
     return sorted(traits, key=lambda x: x["name"])
+
+
+def fetch_champions(set_number=SET_NUMBER):
+    # Pull champions and champion icon URLs for the current TFT set.
+
+    version = get_latest_version()
+    url = f"{BASE_DDRAGON}/cdn/{version}/data/en_US/tft-champion.json"
+
+    response = requests.get(url)
+    response.raise_for_status()
+    data = response.json()
+
+    champions = []
+
+    exclude = {
+        "DarkStar_FakeUnit",
+        "Enemy_Aatrox",
+        "MissFortune_TraitClone",
+        "IvernMinion",
+    }
+
+    for _, champion in data.get("data", {}).items():
+        champion_id = champion.get("id", "")
+
+        if not is_current_set_champion(champion_id, set_number):
+            continue
+
+        api_name = clean_champion_api_name(champion_id)
+
+        if api_name in exclude:
+            continue
+
+        display_name = champion.get("name", api_name)
+        image = champion.get("image", {}).get("full", "")
+
+        icon_url = ""
+        if image:
+            icon_url = f"{BASE_DDRAGON}/cdn/{version}/img/tft-champion/{image}"
+
+        champions.append({
+            "id": champion_id,
+            "api_name": api_name,
+            "name": display_name,
+            "image": image,
+            "icon_url": icon_url,
+        })
+
+    return sorted(champions, key=lambda x: x["name"])
 
 
 def fetch_items():
@@ -145,17 +206,23 @@ def fetch_items():
     for _, item in data.get("data", {}).items():
         item_id = item.get("id", "")
         item_name = item.get("name", "")
+        image = item.get("image", {}).get("full", "")
 
         if not item_id:
             continue
 
         api_name = clean_item_api_name(item_id)
 
+        icon_url = ""
+        if image:
+            icon_url = f"{BASE_DDRAGON}/cdn/{version}/img/tft-item/{image}"
+
         items.append({
             "id": item_id,
             "api_name": api_name,
             "name": item_name,
-            "image": item.get("image", {}).get("full", "")
+            "image": image,
+            "icon_url": icon_url,
         })
 
     # remove duplicate ids
@@ -182,6 +249,7 @@ def build_name_maps(traits, items):
         }
     }
     """
+
     trait_map = {}
     item_map = {}
 
@@ -216,7 +284,98 @@ def build_name_maps(traits, items):
 
     return {
         "traits": trait_map,
-        "items": item_map
+        "items": item_map,
+    }
+
+
+def build_asset_maps(version, traits, champions, items):
+    """
+    Build icon URL maps for app.py.
+
+    Output:
+    {
+        "version": "16.9.1",
+        "champions": {
+            "Kindred": "https://...",
+            "TFT17_Kindred": "https://..."
+        },
+        "traits": {
+            "Challenger": "https://...",
+            "ASTrait": "https://..."
+        },
+        "items": {
+            "GuinsoosRageblade": "https://...",
+            "TFT_Item_GuinsoosRageblade": "https://..."
+        }
+    }
+    """
+
+    champion_icons = {}
+    trait_icons = {}
+    item_icons = {}
+
+    for champion in champions:
+        champion_id = champion.get("id", "")
+        api_name = champion.get("api_name", "")
+        display_name = champion.get("name", "")
+        icon_url = champion.get("icon_url", "")
+
+        if not icon_url:
+            continue
+
+        if champion_id:
+            champion_icons[champion_id] = icon_url
+
+        if api_name:
+            champion_icons[api_name] = icon_url
+
+        if display_name:
+            champion_icons[display_name] = icon_url
+
+    for trait in traits:
+        trait_id = trait.get("id", "")
+        api_name = trait.get("api_name", "")
+        display_name = trait.get("name", "")
+        icon_url = trait.get("icon_url", "")
+
+        if not icon_url:
+            continue
+
+        if trait_id:
+            trait_icons[trait_id] = icon_url
+
+        if api_name:
+            trait_icons[api_name] = icon_url
+
+        if display_name:
+            trait_icons[display_name] = icon_url
+
+    for item in items:
+        item_id = item.get("id", "")
+        api_name = item.get("api_name", "")
+        display_name = item.get("name", "")
+        icon_url = item.get("icon_url", "")
+
+        if not icon_url:
+            continue
+
+        if is_bad_display_name(display_name):
+            continue
+
+        if item_id:
+            item_icons[item_id] = icon_url
+
+        if api_name:
+            item_icons[api_name] = icon_url
+
+        if display_name:
+            item_icons[display_name] = icon_url
+
+    return {
+        "version": version,
+        "champions": champion_icons,
+        "traits": trait_icons,
+        "items": item_icons,
     }
 
 
@@ -234,6 +393,11 @@ def main():
     save_json(traits, DATA_DIR / "traits.json")
     print(f"Saved {len(traits)} traits to data/static/traits.json")
 
+    print(f"\nFetching Set {SET_NUMBER} champions...")
+    champions = fetch_champions(SET_NUMBER)
+    save_json(champions, DATA_DIR / "champions.json")
+    print(f"Saved {len(champions)} champions to data/static/champions.json")
+
     print("\nFetching TFT items...")
     items = fetch_items()
     save_json(items, DATA_DIR / "items.json")
@@ -244,9 +408,18 @@ def main():
     save_json(name_maps, DATA_DIR / "name_maps.json")
     print("Saved name maps to data/static/name_maps.json")
 
+    print("\nBuilding asset maps...")
+    asset_maps = build_asset_maps(version, traits, champions, items)
+    save_json(asset_maps, DATA_DIR / "asset_maps.json")
+    print("Saved asset maps to data/static/asset_maps.json")
+
     print("\nSample traits:")
     for trait in traits[:10]:
-        print(f"  {trait['api_name']} -> {trait['name']}")
+        print(f"  {trait['api_name']} -> {trait['name']} | {trait['icon_url']}")
+
+    print("\nSample champions:")
+    for champion in champions[:10]:
+        print(f"  {champion['api_name']} -> {champion['name']} | {champion['icon_url']}")
 
     print("\nSample item mappings:")
     shown = 0

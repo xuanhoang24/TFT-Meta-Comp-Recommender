@@ -1,160 +1,194 @@
-import streamlit as st
-import pandas as pd
-import pickle
-import sqlite3
 import json
-from data.champions import fetch_champions, fetch_champion_traits
-from llm.explainer import explain_recommendation
-from ml.recommender import get_item_recommendations, get_comp_winrates
+import pickle
+from pathlib import Path
 
-# Load model
+import streamlit as st
+
+from data.champions import fetch_champions, fetch_champion_traits
+from ml.recommender import get_item_recommendations, get_comp_winrates
+from ml.predictor import build_reverse_trait_map, get_trait_counts, predict_top4
+from llm.explainer import explain_recommendation
+
+from ui.components import (
+    inject_css,
+    show_selected_champions,
+    show_board_traits,
+    show_item_recommendations,
+    show_top_traits,
+)
+
+# Configuration
+
+MODEL_PATH = "ml/model.pkl"
+NAME_MAP_PATH = "data/static/name_maps.json"
+ASSET_MAP_PATH = "data/static/asset_maps.json"
+
+
+# Load resources
 
 @st.cache_resource
 def load_model():
-    with open("ml/model.pkl", "rb") as f:
+    with open(MODEL_PATH, "rb") as f:
         data = pickle.load(f)
+
     return data["model"], data["feature_cols"]
 
-# Load data
 
 @st.cache_data
-def load_augments(db_path="data/database.db"):
-    conn = sqlite3.connect(db_path)
-    df = pd.read_sql_query("SELECT augments FROM matches", conn)
-    conn.close()
+def load_data():
+    return (
+        fetch_champions(),
+        fetch_champion_traits(),
+        get_item_recommendations(),
+        get_comp_winrates(),
+    )
 
-    augments = set()
-    for row in df["augments"]:
-        for aug in json.loads(row):
-            clean = aug.replace("TFT17_Augment_", "").replace("TFT_Augment_", "")
-            augments.add(clean)
-
-    return sorted(augments)
 
 @st.cache_data
-def load_champion_traits():
-    return fetch_champion_traits()
+def load_json(path, default):
+    path = Path(path)
 
-@st.cache_data
-def load_recommendations():
-    return get_item_recommendations(), get_comp_winrates()
+    if not path.exists():
+        return default
 
-# Predict
+    with open(path, "r", encoding="utf-8") as f:
+        return json.load(f)
 
-def predict(model, feature_cols, selected_champions, selected_augments):
-    row = {col: 0 for col in feature_cols}
 
-    for champ in selected_champions:
-        key = f"unit_TFT17_{champ}"
-        if key in row:
-            row[key] = 1
+# Page setup
 
-    for aug in selected_augments:
-        key = f"aug_TFT17_Augment_{aug}"
-        if key in row:
-            row[key] = 1
+st.set_page_config(
+    page_title="TFT Recommender",
+    page_icon="🎮",
+    layout="wide"
+)
 
-    df = pd.DataFrame([row])
-    prob = model.predict_proba(df)[0]
-    return prob[1]
+inject_css()
 
-# Match history
-
-def load_match_history(db_path="data/database.db", limit=20):
-    conn = sqlite3.connect(db_path)
-    df = pd.read_sql_query(f"""
-        SELECT match_id, placement, level, fetched_at
-        FROM matches
-        ORDER BY fetched_at DESC
-        LIMIT {limit}
-    """, conn)
-    conn.close()
-    return df
-
-# UI
-
-st.set_page_config(page_title="TFT Recommender", page_icon="🎮", layout="wide")
 st.title("🎮 TFT Meta Comp Recommender")
-st.caption("Select your current board to get comp recommendations")
+st.caption(
+    "Select your current board to get Top 4 prediction, item suggestions, and trait-based recommendations."
+)
+
+
+# Initialize data and mappings
 
 model, feature_cols = load_model()
-champion_traits = load_champion_traits()
-augments = load_augments()
-item_recs, comp_winrates = load_recommendations()
+champions, champion_traits, item_recs, trait_rates = load_data()
 
-all_traits = sorted(set(t for traits in champion_traits.values() for t in traits))
+name_maps = load_json(NAME_MAP_PATH, {"traits": {}, "items": {}})
+assets = load_json(ASSET_MAP_PATH, {"champions": {}, "traits": {}, "items": {}})
 
-tab1, tab2 = st.tabs(["Recommender", "Match History"])
+trait_reverse = build_reverse_trait_map(name_maps)
 
-with tab1:
-    col1, col2 = st.columns(2)
+all_traits = sorted({
+    trait
+    for traits in champion_traits.values()
+    for trait in traits
+})
 
-    with col1:
-        st.subheader("Champions")
-        selected_trait = st.selectbox("Filter by trait:", ["All"] + all_traits)
 
-        if selected_trait == "All":
-            filtered_champions = fetch_champions()
+# Current board input UI
+
+left, right = st.columns([1.25, 1])
+
+with left:
+    st.subheader("Current Board")
+
+    # Filter champion options by selected trait
+    selected_trait = st.selectbox(
+        "Filter champions by trait:",
+        ["All"] + all_traits
+    )
+
+    if selected_trait == "All":
+        filtered_champions = champions
+    else:
+        filtered_champions = sorted([
+            champ
+            for champ, traits in champion_traits.items()
+            if selected_trait in traits
+        ])
+
+    previous_selected = st.session_state.get("selected_champions", [])
+
+    options = filtered_champions + [
+        champ for champ in previous_selected
+        if champ not in filtered_champions
+    ]
+
+    selected_champions = st.multiselect(
+        "Select champions on your board:",
+        options=options,
+        default=previous_selected,
+        max_selections=10,
+        key="selected_champions"
+    )
+
+
+# Board summary UI
+
+with right:
+    st.subheader("Selected Champions")
+    show_selected_champions(selected_champions, assets)
+
+    st.subheader("Board Traits")
+    trait_counts = get_trait_counts(selected_champions, champion_traits)
+    show_board_traits(trait_counts, assets)
+
+
+st.divider()
+
+
+# Recommendation and prediction output
+
+if st.button("Get Recommendation", disabled=not selected_champions):
+
+    # Predict Top 4 probability from selected champions and inferred traits
+    top4_prob = predict_top4(
+        model=model,
+        feature_cols=feature_cols,
+        selected_champions=selected_champions,
+        champion_traits=champion_traits,
+        trait_reverse=trait_reverse
+    )
+
+    st.subheader("📊 Model Prediction")
+
+    metric_col, status_col = st.columns(2)
+
+    with metric_col:
+        st.metric("Top 4 Probability", f"{top4_prob:.1%}")
+
+    with status_col:
+        if top4_prob >= 0.6:
+            st.success("Strong board")
+        elif top4_prob >= 0.4:
+            st.warning("Average board")
         else:
-            filtered_champions = sorted([
-                champ for champ, traits in champion_traits.items()
-                if selected_trait in traits
-            ])
+            st.error("Consider pivoting")
 
-        selected_champions = st.multiselect(
-            "Select champions on your board (up to 9):",
-            options=filtered_champions + [c for c in st.session_state.get("selected_champions", []) if c not in filtered_champions],
-            default=st.session_state.get("selected_champions", []),
-            max_selections=9,
-            key="selected_champions"
-        )
 
-    with col2:
-        st.subheader("Augments")
-        selected_augments = st.multiselect(
-            "Select your augments (up to 3):",
-            options=augments,
-            max_selections=3
-        )
+    # Recommendations
 
-    if st.button("Get Recommendation", disabled=len(selected_champions) == 0):
-        with st.spinner("Analyzing board..."):
-            win_prob = predict(model, feature_cols, selected_champions, selected_augments)
+    result_left, result_right = st.columns(2)
 
-            st.subheader("📊 Model Prediction")
-            c1, c2 = st.columns(2)
-            with c1:
-                st.metric("Top 4 Probability", f"{win_prob:.1%}")
-            with c2:
-                if win_prob >= 0.6:
-                    st.success("Strong board!")
-                elif win_prob >= 0.4:
-                    st.warning("Average board")
-                else:
-                    st.error("Consider pivoting")
+    with result_left:
+        st.subheader("🗡️ Item Recommendations")
+        show_item_recommendations(selected_champions, item_recs, assets)
 
-            st.subheader("🗡️ Item Recommendations")
-            for champ in selected_champions:
-                items = item_recs.get(champ, [])
-                if items:
-                    item_str = " → ".join([f"{item} ({count})" for item, count in items])
-                    st.write(f"**{champ}**: {item_str}")
+    with result_right:
+        st.subheader("🏆 Top Traits by Top 4 Rate")
+        top_traits = show_top_traits(trait_rates, assets, limit=3)
 
-            st.subheader("🏆 Top Comps to Pivot Into")
-            shown = 0
-            for trait, stats in comp_winrates.items():
-                if shown >= 3:
-                    break
-                st.write(f"**{trait}** — {stats['top4_rate']:.1%} top4 rate | avg placement {stats['avg_placement']:.1f}")
-                shown += 1
 
-        with st.spinner("Getting AI explanation..."):
-            top_comps = ", ".join([f"{t} ({s['top4_rate']:.1%})" for t, s in list(comp_winrates.items())[:3]])
-            explanation = explain_recommendation(selected_champions, top_comps)
-            st.subheader("🤖 AI Coach")
-            st.write(explanation)
+    # LLM explanation
 
-with tab2:
-    st.subheader("Recent Match History")
-    df = load_match_history()
-    st.dataframe(df, width='stretch')
+    with st.spinner("Getting AI explanation..."):
+        top_traits_text = ", ".join([
+            f"{trait} ({stats['top4_rate']:.1%} top4 rate)"
+            for trait, stats in top_traits
+        ])
+
+        st.subheader("🤖 AI Coach")
+        st.write(explain_recommendation(selected_champions, top_traits_text))
