@@ -182,6 +182,7 @@ if st.button("Get Recommendation", disabled=not selected_champions):
 
 
     # LLM explanation
+    st.subheader("AI Coach")
 
     with st.spinner("Getting AI explanation..."):
         top_traits_text = ", ".join([
@@ -189,5 +190,4 @@ if st.button("Get Recommendation", disabled=not selected_champions):
             for trait, stats in top_traits
         ])
 
-        st.subheader("AI Coach")
         st.write(explain_recommendation(selected_champions, top_traits_text))
