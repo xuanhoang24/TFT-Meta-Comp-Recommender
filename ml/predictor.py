@@ -32,8 +32,20 @@ def get_trait_counts(selected_champions, champion_traits):
     return counts
 
 
+def infer_player_level(selected_champions):
+    # Infer player level from the number of champions selected on board.
+
+    level = len(selected_champions)
+
+    # TFT level range is usually 1-10
+    return max(1, min(10, level))
+
+
 def build_feature_row(feature_cols, selected_champions, champion_traits, trait_reverse):
     row = {col: 0 for col in feature_cols}
+
+    if "level" in row:
+        row["level"] = infer_player_level(selected_champions)
 
     # Champion one-hot features
     for champ in selected_champions:

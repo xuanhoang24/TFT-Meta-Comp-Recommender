@@ -115,11 +115,11 @@ def main():
     seen_matches = set()
 
     print(" === Fetching Challenger PUUIDS === ")
-    puuids = get_challenger_puuids(limit=100)
+    puuids = get_challenger_puuids(limit=200)
 
     print(" === Fetching matches === ")
     for puuid in puuids:
-        match_ids = get_match_ids(puuid, count=30)
+        match_ids = get_match_ids(puuid, count=50)
         for mid in match_ids:
             if mid in seen_matches:
                 continue

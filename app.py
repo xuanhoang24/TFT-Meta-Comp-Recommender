@@ -59,13 +59,12 @@ def load_json(path, default):
 
 st.set_page_config(
     page_title="TFT Recommender",
-    page_icon="🎮",
     layout="wide"
 )
 
 inject_css()
 
-st.title("🎮 TFT Meta Comp Recommender")
+st.title("TFT Meta Comp Recommender")
 st.caption(
     "Select your current board to get Top 4 prediction, item suggestions, and trait-based recommendations."
 )
@@ -153,7 +152,7 @@ if st.button("Get Recommendation", disabled=not selected_champions):
         trait_reverse=trait_reverse
     )
 
-    st.subheader("📊 Model Prediction")
+    st.subheader("Model Prediction")
 
     metric_col, status_col = st.columns(2)
 
@@ -174,11 +173,11 @@ if st.button("Get Recommendation", disabled=not selected_champions):
     result_left, result_right = st.columns(2)
 
     with result_left:
-        st.subheader("🗡️ Item Recommendations")
+        st.subheader("Item Recommendations")
         show_item_recommendations(selected_champions, item_recs, assets)
 
     with result_right:
-        st.subheader("🏆 Top Traits by Top 4 Rate")
+        st.subheader("Top Traits by Top 4 Rate")
         top_traits = show_top_traits(trait_rates, assets, limit=3)
 
 
@@ -190,5 +189,5 @@ if st.button("Get Recommendation", disabled=not selected_champions):
             for trait, stats in top_traits
         ])
 
-        st.subheader("🤖 AI Coach")
+        st.subheader("AI Coach")
         st.write(explain_recommendation(selected_champions, top_traits_text))
