@@ -6,7 +6,7 @@ An ML-powered tool that helps Teamfight Tactics players make smarter board decis
 
 ## Demo
 
-![App Demo](demo/demo.gif)
+![App Demo](demo/Demo.gif)
 
 ---
 
@@ -88,8 +88,8 @@ tft-recommender/
 ### 1. Clone the repo
 
 ```bash
-git clone https://github.com/xuanhoang24/tft-recommender.git
-cd tft-recommender
+git clone https://github.com/xuanhoang24/TFT-Meta-Comp-Recommender.git
+cd TFT-Meta-Comp-Recommender
 ```
 
 ### 2. Create and activate a virtual environment
@@ -133,55 +133,26 @@ ollama pull llama3.2
 ## Run the Pipeline
 
 ### 1. Fetch match data
-
 ```bash
 python data/fetch_data.py
 ```
 
-This creates:
-
-```text
-data/database.db
-```
-
 ### 2. Pull static metadata
-
 ```bash
 python data/static_data.py
 ```
 
-This creates champion, trait, item name, and icon mapping files under:
-
-```text
-data/static/
-```
-
 ### 3. Process data into ML features
-
 ```bash
 python data/process_data.py
 ```
 
-This creates:
-
-```text
-data/features.csv
-```
-
 ### 4. Train the model
-
 ```bash
 python ml/train.py
 ```
 
-This creates:
-
-```text
-ml/model.pkl
-```
-
 ### 5. Run the app
-
 ```bash
 streamlit run app.py
 ```
@@ -216,7 +187,6 @@ The app includes two supporting recommendation systems:
 - **Item Recommendation:** Finds the most common items used by Top-4 players for each selected champion.
 - **Trait Recommendation:** Ranks traits by Top-4 rate, average placement, and sample count.
 
-These recommendations are mined from collected match data and support the ML prediction shown in the Streamlit dashboard.
 ---
 
 ## Current Limitations
